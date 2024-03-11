@@ -1,0 +1,4 @@
+Lexeri (lexer.py)
+Parseri (ast.py)
+Koodigeneroija/kääntäjä (main.py)
+Formaali keilimäärittely (kontekstiton syntaksi/tulosäännöt) HebeScript:lle
