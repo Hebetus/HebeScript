@@ -9,16 +9,16 @@ class Lexer():
         
         self.lexer.add('PRINT', r'tulosta')
 
-        # Sulun (koodilohkon) avaus ja sulku:
+        # Tulostuksen avaus ja sulkeminen
         
         self.lexer.add('OPEN_PAREN', r'\(')
         self.lexer.add('CLOSE_PAREN', r'\)')
 
-        # Puolipiste:
+        # Käännösyksikön päätös
 
         self.lexer.add('SEMI_COLON', r'\;')
 
-        # Operaattorit:
+        # Summa ja erotus:
 
         self.lexer.add('SUM', r'\+')
         self.lexer.add('SUB', r'\-')
