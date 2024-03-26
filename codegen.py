@@ -28,5 +28,26 @@ class CodeGen():
         self.engine = engine
     
     def _declare_print_function(self):
+        # Tulostusfunktion määrittely
         voidptr_ty = ir.IntType(8).as_pointer()
         printf_ty = ir.FunctionType(ir.IntType(32), [voidptr_ty], var_arg=True)
+        printf = ir.Function(self.module, printf_ty, name="printf")
+        self.printf = printf
+
+    def _compile_ir(self):
+        # LLVM-moduuliobjektin luonti
+        self.builder.ret_void()
+        llvm_ir = str(self.module)
+        mod = self.binding.parse_assembly(llvm_ir)
+        mod.verify()
+        self.engine.add_module(mod)
+        self.engine.finalize_object()
+        self.engine.run_static_constructors()
+        return mod
+
+    def create_ir(self):
+        self._compile_ir()
+    
+    def save_ir(self, filename):
+        with open(filename, 'w') as output_file:
+            output_file.write(str(self.module))

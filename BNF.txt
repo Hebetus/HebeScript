@@ -1,0 +1,69 @@
+<käännösyksikkö> ::= { <asetuslause> | <evaluaatio> | <toistosilmukka> | <tulostus> | päätä_ohjelma } ;
+                        | { <asetuslause> | <evaluaatio> | <toistosilmukka> | <tulostus> | päätä_ohjelma } ; <käännösyksikkö>
+
+<asetuslause> ::= <muuttujatyypi> muuttujanimi = <muuttujanarvo>
+
+<muuttujatyyppi> ::= liuku
+                    | kokonaisluku
+                    | merkki
+                    | sana
+                    | totuusarvo
+
+<muuttujanarvo> ::= <liukuluku>
+                    | <symboli>
+                    | <merkkijono>
+                    | <totuusarvo>
+                    | luku
+
+<liukuluku> ::= luku , desimaaliosa
+
+<symboli> ::= ' symboli '
+
+<merkkijono> ::= " merkkijono "
+
+<totuusarvo> ::= tosi | epätosi
+
+<evaluaatio> ::= jos <evaluaatiolauseke> niin <käännösyksikkö>
+                | jos <evaluaatiolauseke> tai <evaluaatio>
+                | jos <evaluaatiolauseke> ja <evaluaatio>
+                | ei <evaluaatio>
+
+<evaluaatiolauseke> ::= ( muuttujanimi > muuttujanimi )
+                        | ( muuttujanimi < muuttujanimi )
+                        | ( muuttujanimi == muuttujanimi )
+
+<toistosilmukka> ::= niinkauankuin <evaluaatio> : <käännösyksikkö>
+
+<tulostus> ::= tulosta_päätteeseen [ muuttujanimi ]
+
+Terminaalisymbolit:
+    muuttujanimi
+
+    luku
+    ,
+    desimaaliosa
+    '
+    symboli
+    "
+    merkkijono
+
+    (
+    )
+    jos
+    niin
+    tai
+    ja
+    ei
+    >
+    <
+    ==
+
+    niinkauankuin
+    :
+
+    tulosta_päätteeseen
+    [
+    ]
+
+    ;
+    päätä_ohjelma
